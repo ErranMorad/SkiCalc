@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All About Bansko - Your Home in Bansko</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        :root { 
+            --p: #1976d2; --s: #e3f2fd; --w: #fff; --t: #1a1a1a; --green: #2e7d32; 
+            --soft-red: #ef5350; --highlight: #d32f2f;
+        }
+        * { box-sizing: border-box; margin:0; padding:0; }
+        body { font-family: 'Rubik', sans-serif; background: linear-gradient(135deg, #f5f7fa, #c3cfe2); color: var(--t); min-height:100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background:var(--w); box-shadow:0 2px 10px rgba(0,0,0,0.08); position:sticky; top:0; z-index:100; }
+        nav { display:flex; justify-content:space-between; align-items:center; padding:0.8rem 0; }
+        .logo { font-size:1.5rem; font-weight:700; color:var(--p); }
+        .lang-switch a { color:var(--p); text-decoration:none; font-weight:600; }
+        .hero { text-align:center; padding:5rem 0; }
+        .hero h1 { font-size:3.4rem; background:linear-gradient(135deg,var(--p),#42a5f5); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:700; }
+        .hero p { font-size:1.7rem; margin:1.5rem auto; max-width:900px; }
+        .hero .discount { color:var(--green); font-weight:700; font-size:1.9rem; }
+        .calc-section { background:var(--w); border-radius:20px; padding:3rem; box-shadow:0 8px 32px rgba(0,0,0,0.15); margin-bottom:3rem; }
+        .calc-header h2 { font-size:2.7rem; color:var(--p); text-align:center; }
+        .beta-box { background:#fff5f5; border:2px solid #ffcdd2; color:#c62828; padding:1rem 1.5rem; border-radius:12px; text-align:center; font-weight:600; margin:1.5rem auto; max-width:520px; font-size:1.1rem; line-height:1.8; }
+        .calc { max-width:520px; margin:0 auto; }
+        .form-group { margin-bottom:1.5rem; }
+        label { display:block; margin-bottom:0.5rem; font-weight:500; }
+        select, input[type=number] { width:100%; padding:0.9rem; border:2px solid #eee; border-radius:12px; font-size:1.1rem;
+                 background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+                 background-position:right 1rem center; background-repeat:no-repeat; background-size:1.5em; padding-right:3rem; }
+        .grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+        .btn-reset { background:var(--soft-red); color:white; border:none; border-radius:12px; padding:1rem; width:100%; font-weight:600; cursor:pointer; margin:1.8rem 0; transition:0.3s; }
+        .btn-reset:hover { background:#d32f2f; }
+        .total { text-align:center; font-size:3rem; font-weight:700; color:var(--p); background:var(--s); padding:1.6rem; border-radius:16px; margin:2rem 0; }
+        .summary { background:#f8fdff; padding:2rem; border-radius:16px; border-left:8px solid var(--p); font-size:1.35rem; line-height:2.4; }
+        .price-line { display:flex; justify-content:space-between; padding:0.5rem 0; }
+        .final-price { font-size:1.9rem !important; font-weight:700; color:var(--green); border-top:3px double #aaa; padding-top:1.2rem !important; margin-top:1rem !important; }
+        .group-notice { background:#e8f5e8; color:var(--green); padding:1rem; border-radius:10px; font-weight:600; text-align:center; margin:1rem 0; }
+        .per-person-bold { font-weight:900; color:var(--highlight); font-size:1.5rem; }
+        .whatsapp-section { background:var(--w); border-radius:20px; padding:3rem 2rem; text-align:center; box-shadow:0 8px 32px rgba(0,0,0,0.15); margin-top:2rem; }
+        .whatsapp-btn { display:inline-block; background:#25d366; color:white; padding:1.3rem 3.5rem; border-radius:50px; font-size:1.8rem; font-weight:700; text-decoration:none; box-shadow:0 6px 20px rgba(37,211,102,0.4); transition:0.3s; }
+        .whatsapp-btn:hover { background:#1da851; transform:translateY(-4px); }
+        .whatsapp-btn i { margin-right:12px; }
+        .price-tables { margin-top: 4rem; background: var(--w); border-radius: 20px; padding: 2.5rem; box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+        table { width: 100%; border-collapse: collapse; margin: 2rem 0; font-size: 1.1rem; }
+        th, td { padding: 1rem; text-align: center; border: 1px solid #ddd; }
+        th { background: var(--p); color: white; font-weight: 600; }
+        tr:nth-child(even) { background: #f8fdff; }
+        .note { text-align: center; font-size: 1rem; color: #555; margin-top: 1rem; font-weight: 500; }
+        footer { text-align:center; padding:3rem 0; background:var(--w); margin-top:5rem; color:#777; font-size:0.95rem; }
+        @media (max-width:768px) { .grid{grid-template-columns:1fr;} }
+    </style>
+</head>
+<body>
+
+<!-- Header & Hero (unchanged) -->
+<header>
+    <nav class="container">
+        <div class="logo">הכל על בנסקו</div>
+        <div class="lang-switch"><a href="index-he.html">עברית</a></div>
+    </nav>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>All About Bansko - Your Home in Bansko</h1>
+        <p>Instant calculator – updated prices<br><span class="discount">10% discount for our customers already included!</span></p>
+    </div>
+</section>
+
+<main class="container">
+
+    <section class="calc-section">
+        <div class="calc-header">
+            <h2>Instant Price Calculator</h2>
+            <p>Change anything → price updates instantly</p>
+            <div class="beta-box">
+                This calculator is in BETA – prices are 99% accurate<br>
+                Final confirmation via WhatsApp
+            </div>
+        </div>
+
+        <div class="calc">
+            <div class="form-group">
+                <label for="people">Number of People</label>
+                <select id="people">
+                    <option value="1">1 Person</option>
+                    <option value="2">2 People</option>
+                    <option value="3">3 People</option>
+                    <option value="4">4 People</option>
+                    <option value="group">5–15 People (Group Lesson – price per person)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="peopleCount" id="peopleCountLabel" style="display:none;">Exact number of people (5–15)</label>
+                <input type="number" id="peopleCount" min="5" max="15" value="8" style="display:none;">
+            </div>
+
+            <div class="form-group">
+                <label for="days">Number of Days</label>
+                <select id="days">
+                    <option value="1">1 Day</option>
+                    <option value="2">2 Days</option>
+                    <option value="3">3 Days</option>
+                    <option value="4">4 Days</option>
+                    <option value="5">5 Days</option>
+                    <option value="6">6 Days</option>
+                    <option value="7">7 Days</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="hours">Lesson Duration</label>
+                <select id="hours">
+                    <option value="" selected disabled>Choose lesson</option>
+                    <option value="0">I only rent equipment (no lessons)</option>
+                    <option value="2">2 Hours lesson</option>
+                    <option value="4">4 Hours lesson</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Equipment (Standard)</label>
+                <div class="grid">
+                    <select id="ski">
+                        <option value="none" selected disabled>Choose ski equipment</option>
+                        <option value="none">I don’t need ski</option>
+                        <option value="ski">Standard Ski Set</option>
+                    </select>
+                    <select id="snowboard">
+                        <option value="none" selected disabled>Choose snowboard</option>
+                        <option value="none">I don’t need snowboard</option>
+                        <option value="snowboard">Standard Snowboard Set</option>
+                    </select>
+                </div>
+            </div>
+
+            <button id="reset" class="btn-reset">Reset All</button>
+
+            <div class="total" id="total">Total: €0</div>
+            <div id="groupNotice" class="group-notice" style="display:none;">
+                Group lesson selected – price is per person × number of people
+            </div>
+            <div class="summary" id="summary">Choose your options above</div>
+        </div>
+    </section>
+
+    <section class="whatsapp-section">
+        <h2>Ready? Let’s talk!</h2>
+        <a href="#" id="whatsappBtn" class="whatsapp-btn" target="_blank" rel="noopener">
+            <i class="fab fa-whatsapp"></i> Send Request on WhatsApp
+        </a>
+    </section>
+
+    <!-- All price tables (unchanged) -->
+    <section class="price-tables">
+        <h3>Full Price List (before 10% discount)</h3>
+
+        <h4 style="text-align:center;margin:2rem 0 1rem;color:var(--p);">Private Lessons (per group) – 1 to 4 people</h4>
+        <table>
+            <tr><th>People</th><th>1 day</th><th>2 days</th><th>3 days</th><th>4 days</th><th>5 days</th><th>6 days</th><th>7 days</th></tr>
+            <tr><td>1 person – 2h</td><td>120</td><td>225</td><td>325</td><td>425</td><td>540</td><td>625</td><td>715</td></tr>
+            <tr><td>1 person – 4h</td><td>230</td><td>430</td><td>630</td><td>820</td><td>1000</td><td>1170</td><td>1250</td></tr>
+            <tr><td>2 people – 2h</td><td>165</td><td>310</td><td>450</td><td>585</td><td>710</td><td>830</td><td>920</td></tr>
+            <tr><td>2 people – 4h</td><td>290</td><td>550</td><td>800</td><td>1040</td><td>1265</td><td>1475</td><td>1655</td></tr>
+            <tr><td>3 people – 2h</td><td>210</td><td>400</td><td>600</td><td>785</td><td>940</td><td>1085</td><td>1230</td></tr>
+            <tr><td>3 people – 4h</td><td>350</td><td>670</td><td>950</td><td>1250</td><td>1540</td><td>1800</td><td>2000</td></tr>
+            <tr><td>4 people – 2h</td><td>255</td><td>480</td><td>720</td><td>960</td><td>1160</td><td>1320</td><td>1450</td></tr>
+            <tr><td>4 people – 4h</td><td>410</td><td>800</td><td>1170</td><td>1620</td><td>1880</td><td>2160</td><td>2400</td></tr>
+        </table>
+
+        <h4 style="text-align:center;margin:2rem 0 1rem;color:var(--p);">Group Lessons (5–15 people) – Price per person</h4>
+        <table>
+            <tr><th>Hours / Days</th><th>1 Day</th><th>2 Days</th><th>3 Days</th><th>4 Days</th><th>5 Days</th><th>6 Days</th><th>7 Days</th></tr>
+            <tr><td>2 hours</td><td>50€</td><td>95€</td><td>135€</td><td>175€</td><td>215€</td><td>250€</td><td>280€</td></tr>
+            <tr><td>4 hours</td><td>95€</td><td>180€</td><td>260€</td><td>335€</td><td>405€</td><td>470€</td><td>520€</td></tr>
+        </table>
+
+        <h4 style="text-align:center;margin:2rem 0 1rem;color:var(--p);">Equipment Rental (per person)</h4>
+        <table>
+            <tr><th>Days</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
+            <tr><td>Standard Ski Set</td><td>18€</td><td>34€</td><td>49€</td><td>63€</td><td>76€</td><td>89€</td><td>100€</td></tr>
+            <tr><td>Standard Snowboard Set</td><td>20€</td><td>35€</td><td>52€</td><td>64€</td><td>77€</td><td>88€</td><td>98€</td></tr>
+        </table>
+
+        <div class="note">
+            10% discount for our customers is automatically applied in the calculator<br>
+            All prices in Euro (€) • Final confirmation via WhatsApp
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">© 2025 הכל על בנסקו – Israel & Bulgaria • All rights reserved</div>
+</footer>
+
+<script>
+    const privateLessons = {
+        1: {2: [120,225,325,425,540,625,715], 4: [230,430,630,820,1000,1170,1250]},
+        2: {2: [165,310,450,585,710,830,920], 4: [290,550,800,1040,1265,1475,1655]},
+        3: {2: [210,400,600,785,940,1085,1230], 4: [350,670,950,1250,1540,1800,2000]},
+        4: {2: [255,480,720,960,1160,1320,1450], 4: [410,800,1170,1620,1880,2160,2400]}
+    };
+
+    const groupLessons = {
+        2: [50, 95, 135, 175, 215, 250, 280],
+        4: [95, 180, 260, 335, 405, 470, 520]
+    };
+
+    const equipment = {
+        ski: [18, 34, 49, 63, 76, 89, 100],
+        snowboard: [20, 35, 52, 64, 77, 88, 98]
+    };
+
+    const DISCOUNT = 0.10;
+
+    function update() {
+        const peopleSelect = document.getElementById('people').value;
+        const isGroup = peopleSelect === 'group';
+        const people = isGroup ? parseInt(document.getElementById('peopleCount').value) || 8 : parseInt(peopleSelect);
+        const days = parseInt(document.getElementById('days').value);
+        const dIndex = days - 1;
+        const hours = document.getElementById('hours').value;
+        const ski = document.getElementById('ski').value;
+        const snowboard = document.getElementById('snowboard').value;
+
+        document.getElementById('peopleCountLabel').style.display = isGroup ? 'block' : 'none';
+        document.getElementById('peopleCount').style.display = isGroup ? 'block' : 'none';
+        document.getElementById('groupNotice').style.display = isGroup ? 'block' : 'none';
+
+        let lessonPrice = 0;
+        let basePerPerson = 0;
+        if (hours > 0) {
+            if (isGroup) {
+                basePerPerson = groupLessons[hours][dIndex];
+                lessonPrice = basePerPerson * people;
+            } else {
+                lessonPrice = privateLessons[people][hours][dIndex];
+            }
+        }
+
+        const skiPrice = (ski === 'ski') ? equipment.ski[dIndex] * people : 0;
+        const sbPrice = (snowboard === 'snowboard') ? equipment.snowboard[dIndex] * people : 0;
+        const equipTotal = skiPrice + sbPrice;
+
+        const subtotal = lessonPrice + equipTotal;
+        const discountAmount = Math.round(subtotal * DISCOUNT);
+        const finalTotal = subtotal - discountAmount;
+
+        // Calculate discounted per-person price for group lessons
+        const discountedPerPerson = isGroup && hours > 0 ? (basePerPerson * 0.9).toFixed(2) : 0;
+
+        document.getElementById('total').innerHTML = subtotal > 0 ? 
+            `Total to pay: <span style="font-size:1.4em;">€${finalTotal}</span><br>
+             <small style="color:#2e7d32;">10% discount already applied!</small>` : 
+            'Total: €0';
+
+        let breakdown = "";
+        if (hours > 0) {
+            if (isGroup) {
+                breakdown += `<div class="price-line">
+                    <span>Group lesson (${people} people) × ${hours}h × ${days} days</span>
+                    <strong>€${lessonPrice}</strong>
+                </div>`;
+                breakdown += `<div class="price-line" style="margin-top:8px;">
+                    <span>→ Price per person <strong>after 10% discount</strong>:</span>
+                    <span class="per-person-bold">€${discountedPerPerson}</span>
+                </div>`;
+            } else {
+                breakdown += `<div class="price-line"><span>Private lesson – ${people} people × ${hours}h × ${days} days</span><strong>€${lessonPrice}</strong></div>`;
+            }
+        } else if (equipTotal > 0) {
+            breakdown += `<div class="price-line"><span>Equipment only × ${people} people × ${days} days</span><strong>€${equipTotal}</strong></div>`;
+        }
+
+        if (skiPrice > 0) breakdown += `<div class="price-line"><span>Standard Ski Set × ${people} × ${days} days</span><strong>€${skiPrice}</strong></div>`;
+        if (sbPrice > 0) breakdown += `<div class="price-line"><span>Standard Snowboard Set × ${people} × ${days} days</span><strong>€${sbPrice}</strong></div>`;
+
+        if (discountAmount > 0) {
+            breakdown += `<div class="price-line" style="margin-top:1rem;color:#2e7d32;font-weight:600;font-size:1.4rem;">
+                <span>−10% discount for our customers</span><span>−€${discountAmount}</span>
+            </div>`;
+        }
+
+        breakdown += `<div class="price-line final-price">
+            <span>Final price — you pay</span>
+            <span style="font-size:2.2rem;color:#2e7d32;">€${finalTotal}</span>
+        </div>`;
+
+        document.getElementById('summary').innerHTML = breakdown || "Choose your options above";
+
+        // WhatsApp message
+        const msg = encodeURIComponent(
+`Hi from All About Bansko!
+
+People: ${people}
+Days: ${days}
+Lessons: ${hours == 0 ? "Equipment only" : `${hours} hours ${isGroup ? "(group – €"+discountedPerPerson+" per person after discount)" : "(private)"}`}
+Ski equipment: ${ski === 'ski' ? 'Yes' : 'No'}
+Snowboard: ${snowboard === 'snowboard' ? 'Yes' : 'No'}
+
+Subtotal: €${subtotal}
+−10% discount applied
+FINAL PRICE: €${finalTotal}
+
+Please confirm availability! Thank you`);
+        document.getElementById('whatsappBtn').href = `https://wa.me/972542502112?text=${msg}`;
+    }
+
+    document.getElementById('reset').onclick = () => {
+        document.getElementById('people').value = "1";
+        document.getElementById('peopleCount').value = "8";
+        document.getElementById('days').value = "1";
+        document.getElementById('hours').value = "";
+        document.getElementById('ski').value = "none";
+        document.getElementById('snowboard').value = "none";
+        update();
+    };
+
+    document.querySelectorAll('select, #peopleCount').forEach(el => el.addEventListener('change', update));
+    update();
+</script>
+</body>
+</html>
